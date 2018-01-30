@@ -9,12 +9,22 @@
   </head>
   
   <body>
+    <!-- HEADER -->
     <h1>Sockets!</h1>
+
+    <!-- USERNAME FORM -->
+    <form id="username-form" action="submit">
+      <input id="username-field" type="text" placeholder="username" value="" />
+      <button type="submit"> Save </button>
+    </form>
+
+    <!-- MESSAGE FORM -->
     <form id="message-form" action="submit">
-      <input id="message" type="text" placeholder="message" value="" />
+      <input id="message-field" type="text" placeholder="message" value="" />
       <button type="submit"> Send </button>
     </form>
 
+    <!-- MESSAGE DUMP -->
     <section id="dump"></section>
 
     <!-- SCRIPTS -->

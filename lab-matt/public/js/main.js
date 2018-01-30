@@ -3,16 +3,26 @@ console.log('Proof of Life!');
 const socket = io();
 
 let messageForm = document.getElementById('message-form');
-let message = document.getElementById('message');
+let usernameForm = document.getElementById('username-form');
 let messageDump = document.getElementById('dump');
 
 // ================ EVENT LISTENERS ================
+usernameForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  console.log('Setting Username:', `'${event.target[0].value}'`);
+  let username = event.target[0].value;
+
+  socket.emit('set-username', { username });
+  event.target[0].value = '';
+});
+
 messageForm.addEventListener('submit', (event) => {
   event.preventDefault();
-  console.log('message:', event.target[0].value);
+  console.log('Sending message:', `'${event.target[0].value}'`);
   let message = event.target[0].value;
 
   socket.emit('send-message', { message });
+  event.target[0].value = '';
 });
 
 // ================ SOCKETS ================

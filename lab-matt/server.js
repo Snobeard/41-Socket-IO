@@ -28,10 +28,10 @@ io.on('connection', (socket) => {
     io.emit('render-message', messageObject);
   });
 
-  
-  
-  
-  
+  socket.on('set-username', ({username}) => {
+    USERS[socket.id].username = username;
+    console.log(`Username set for socket #${socket.id}`);
+  });
 });
 
 http.listen(PORT, () => {

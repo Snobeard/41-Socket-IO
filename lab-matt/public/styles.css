@@ -6,3 +6,22 @@ body {
   background-color: orangered;
 }
 
+
+#dump section:nth-child(odd) {
+  background-color: orange;
+}
+
+/* timestamp */
+.message-wrapper p.timestamp {
+  font-style: oblique;
+  font-size: 14px;
+}
+
+/* username */
+.message-wrapper p.username {
+  font-weight: bold;
+}
+
+.message-wrapper p {
+  display: inline;
+}
