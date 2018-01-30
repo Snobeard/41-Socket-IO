@@ -1,7 +1,7 @@
 'use strict';
 
 require('dotenv').config();
-let { PORT } = process.env;
+let PORT = process.env.PORT || 3000;
 
 let express = require('express');
 let app = express();
@@ -14,15 +14,24 @@ const USERS = {};
 
 io.on('connection', (socket) => {
   console.log(`${socket.id} connected.`);
+  USERS[socket.id] = {};
   USERS[socket.id].username = 'anon';
+  
   
   socket.on('disconnect', () => {
     console.log(`${socket.id} disconnected.`);
+    delete USERS[socket.id];
   });
 
-  socket.on('', () => {
-
+  socket.on('send-message', (messageObject) => {
+    messageObject.username = USERS[socket.id].username;
+    io.emit('render-message', messageObject);
   });
+
+  
+  
+  
+  
 });
 
 http.listen(PORT, () => {

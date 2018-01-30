@@ -7,13 +7,19 @@
     <link rel="stylesheet" href="/styles.css" />
     <title>Socket Chatroom</title>
   </head>
+  
   <body>
     <h1>Sockets!</h1>
-    <form id="message">
-      <input type="text" placeholder="message" />
+    <form id="message-form" action="submit">
+      <input id="message" type="text" placeholder="message" value="" />
       <button type="submit"> Send </button>
     </form>
+
+    <section id="dump"></section>
+
+    <!-- SCRIPTS -->
     <script src="/socket.io/socket.io.js"></script>
+    <script src="/model/chat-message.js"></script>
     <script src="/js/main.js"></script>
   </body>
 </html>
