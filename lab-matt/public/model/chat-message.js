@@ -5,7 +5,6 @@ class ChatMessage {
     this.username = input.username;
   }
 
-
   render(parentElement) {
     let container = document.createElement('section');
     let timestamp = document.createElement('p');

@@ -4,6 +4,7 @@ const socket = io();
 
 let messageForm = document.getElementById('message-form');
 let usernameForm = document.getElementById('username-form');
+let usernameField = document.getElementById('username-field');
 let messageDump = document.getElementById('dump');
 
 // ================ EVENT LISTENERS ================
@@ -29,4 +30,8 @@ messageForm.addEventListener('submit', (event) => {
 socket.on('render-message', (data) => {
   let message = new ChatMessage(data);
   message.render(messageDump);
+});
+
+socket.on('set-username-placeholder', ({ username }) => {
+  usernameField.placeholder = username;
 });

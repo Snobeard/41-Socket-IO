@@ -31,6 +31,7 @@ io.on('connection', (socket) => {
   socket.on('set-username', ({username}) => {
     USERS[socket.id].username = username;
     console.log(`Username set for socket #${socket.id}`);
+    socket.emit('set-username-placeholder', {username});
   });
 });
 
